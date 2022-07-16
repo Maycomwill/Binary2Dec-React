@@ -6,18 +6,18 @@ export const Container = styled.div`
   flex-direction: column;
   border-radius: 25px;
   box-shadow: 0px 3px 5px rgba(0, 0, 0, 0.5);
-  height: 50vh;
+  height: 60vh;
   width: clamp(250px, 50%, 900px);
   justify-content: flex-start;
   align-items: center;
-  padding: 50px 0px;
-  gap: 55px;
+  padding: 30px 0px;
+  gap: 25px;
 `;
 
 export const MainText = styled.text`
   color: #acf100;
   font-family: 'Roboto', -apple-system, system-ui, sans-serif;
-  font-size: 16pt;
+  font-size: 18pt;
   font-weight: 700;
   display: flex;
   text-align: center;
@@ -32,7 +32,8 @@ export const InputLabel = styled.form`
 
 export const BinaryNumberInput = styled.input`
   height: 40px;
-  width: 250px;
+  width: 240px;
+  margin: 10px 0px;
   font-size: 12pt;
   background: #e6e6e6;
   color: #10002e;
@@ -56,8 +57,25 @@ export const ConverterButton = styled.button`
 
 `;
 
-export const ResultText = styled.div`
+export const ResultArea = styled.div`
   width: 50%;
-  height: 50vh;
-  background: red;
+  height: 50px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  color: #acf100;
+`;
+
+export const TextResultArea = styled.input`
+  text-align: center;
+  width: 50%;
+  height: 50px;
+  background: #160d6e;
+  color: #c7ff3a;
+  font-size: 18pt;
+  &::placeholder{
+    color: #c7ff3a;    
+  };
 `;

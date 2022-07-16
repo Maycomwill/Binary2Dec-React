@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Container, MainText, InputLabel, BinaryNumberInput, ConverterButton, ResultText } from './styles';
+import { Container, MainText, InputLabel, BinaryNumberInput, ConverterButton, ResultArea, TextResultArea } from './styles';
 
 function MainCard() {
   const [binaryNumber, setbinaryNumber] = useState();
@@ -34,7 +34,7 @@ function MainCard() {
     <Container>
       <MainText>Informe um número binário para conversão</MainText>
       <InputLabel>
-      {ErrorMessage && <span style={{ color: 'red' }}>{ErrorMessage}</span>}
+      {ErrorMessage && <span style={{ color: '#a0a0aa' }}>{ErrorMessage}</span>}
           <BinaryNumberInput 
             type="number" 
             placeholder='Adicione apenas 0 ou 1' 
@@ -43,9 +43,14 @@ function MainCard() {
           </BinaryNumberInput>
         <ConverterButton onClick={onFormSubmit}>Converter</ConverterButton>
       </InputLabel> 
-      <ResultText>
-          O Valor de {binaryNumber} em decimal é {decimalNumber}
-      </ResultText>  
+      <ResultArea>
+          <p>Número convertido</p>
+          <TextResultArea
+          type="text"
+          placeholder='Resultado'
+          value={decimalNumber}
+          disabled />
+      </ResultArea>  
     </Container>
     );
 }
