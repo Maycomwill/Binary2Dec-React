@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 
-import { Container, MainText, InputLabel, BinaryNumberInput, ConverterButton, ResultArea, TextResultArea } from './styles';
+import { Container, MainCardArea, ErrorMessageText, MainText, InputLabel, BinaryNumberInput, ConverterButton, ResultArea, TextResultArea, Credits } from './styles';
 
 function MainCard() {
   const [binaryNumber, setbinaryNumber] = useState();
@@ -11,10 +11,13 @@ function MainCard() {
     e.preventDefault()
 
   if (binaryNumber.match(/^[0-1]+$/g) === null) {
-    setErrorMessage('Digite apenas 0 ou 1')
+    setErrorMessage('Número inválido')
+    setbinaryNumber('')
+    setdecimalNumber('')
     return
   }
   setErrorMessage('') 
+
 
   const reversedBinaryText = binaryNumber
       .split('')
@@ -32,25 +35,33 @@ function MainCard() {
 
   return (
     <Container>
-      <MainText>Informe um número binário para conversão</MainText>
-      <InputLabel>
-      {ErrorMessage && <span style={{ color: '#a0a0aa' }}>{ErrorMessage}</span>}
-          <BinaryNumberInput 
-            type="number" 
-            placeholder='Adicione apenas 0 ou 1' 
-            value={binaryNumber} 
-            onChange={(e) => setbinaryNumber(e.target.value)}>
-          </BinaryNumberInput>
-        <ConverterButton onClick={onFormSubmit}>Converter</ConverterButton>
-      </InputLabel> 
-      <ResultArea>
-          <p>Número convertido</p>
-          <TextResultArea
-          type="text"
-          placeholder='Resultado'
-          value={decimalNumber}
-          disabled />
-      </ResultArea>  
+      <MainCardArea>
+        <MainText>Informe um número binário para conversão</MainText>
+        <InputLabel>
+          <ErrorMessageText> 
+            <span style={{ color: '#a0a0aa', textAlign: "center" }}>
+            {ErrorMessage}
+            </span>
+          </ErrorMessageText>
+            <BinaryNumberInput 
+              type="number" 
+              placeholder='Digite apenas 0 ou 1' 
+              value={binaryNumber} 
+              onChange={(e) => setbinaryNumber(e.target.value)}>
+            </BinaryNumberInput>
+          <ConverterButton onClick={onFormSubmit}>Converter</ConverterButton>
+        </InputLabel> 
+        <ResultArea>
+            <p>Número convertido</p>
+            <TextResultArea
+            type="text"
+            value={decimalNumber}
+            disabled />
+        </ResultArea>  
+      </MainCardArea>
+      <Credits>
+        <p>Desenvolvido por Maycom Willams</p>
+      </Credits>
     </Container>
     );
 }

@@ -5,6 +5,7 @@ export default createGlobalStyle`
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Roboto', -apple-system, system-ui, sans-serif;
   }
   html{
     min-height: 100%;
@@ -13,6 +14,6 @@ export default createGlobalStyle`
   *, button, input{
     border: 0;
     outline: none;
-    font-family: "Roboto", -apple-system, system-ui, sans-serif;
+    font-family: 'Roboto', -apple-system, system-ui, sans-serif;
   }
 `;
